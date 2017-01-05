@@ -1,0 +1,220 @@
+body {
+    margin:0;
+    padding:0;
+    background: url('../img/background.png') no-repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: 100% 100%; /* version standardisée */
+}
+
+.categorie{
+    color: #fff;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.62);
+    width: 40%;
+    padding: 10px 0px;
+    border: 1px solid #323232;
+    text-align: center;
+}
+
+
+.row-chrono{
+    margin-top: 20px;
+}
+
+.chrono{
+    background: #91000e;
+    border: ridge #870400 10px;
+    border-radius:50%;
+    width:80px;
+    height:80px;
+    font-size: 4em;
+    color: white;
+}
+
+
+
+.container-question {
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container-explanation {
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    border: groove #870400 15px;
+    text-decoration: none;
+    padding: 10px;
+}
+.col-question, .col-explanation{
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    border: groove #870400 15px;
+    text-decoration: none;
+}
+
+.question{
+    font-size: 28px;
+}
+
+/* ------------- Bouton questions ------------ */
+
+.btn-reponse {
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.62);
+    padding: 20px 0px;
+    border: groove #870400 15px;
+    text-decoration: none;
+    margin-top: 50px;
+    width: 80%;
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.btn-reponse-green {
+    background-color: green;
+}
+.btn-reponse:hover {
+    background: #5a0000;
+    text-decoration: none;
+}
+
+.select {
+    background-color: blue;
+}
+/* ------------- Bouton valider ------------ */
+
+.btn-valider, .btn-next{
+    -webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #5a0000;
+    padding: 6px 0px;
+    border: groove #870400 15px;
+    text-decoration: none;
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+
+.col-valider{
+    padding: 0;
+}
+
+
+/* ------------ Numéro question --------------- */
+
+.container-nq{
+    background: #5a0000;
+    border: ridge #870400 10px;
+    width:70px;
+    height:70px;
+}
+
+.n-question{
+    margin-top: 15px;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+/* ---------------- Progress bar ----------------- */
+
+.progress {
+    height: 40px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.62);
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    border: 1px solid #323232;
+    margin-top: 50px;
+}
+
+.progress-bar {
+    float: left;
+    width: 10%;
+    height: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    background-color: #b30000;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+}
+
+.pourcentage{
+    margin-left: 40%;
+}
+
+.prog-bar{
+    background-color: #870400;
+}
+
+
+@media(max-width:767px){
+    .container-nq{
+        width: 60px;
+        height: 60px;
+    }
+
+    .n-question{
+        font-size: 18px;
+    }
+
+    .categorie{
+        width: 100%;
+    }
+
+    .btn-reponse{
+        width: 100%;
+    }
+
+    .chrono{
+        margin-top: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .question{
+        font-size: 20px;
+    }
+}
+@media(min-width:768px){
+
+    .btn-reponse{
+        width: 100%;
+    }
+}
+@media(min-width:992px){
+    .btn-reponse{
+        width: 80%;
+    }
+}
+@media(min-width:1200px){}
