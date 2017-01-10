@@ -218,3 +218,33 @@ body {
     }
 }
 @media(min-width:1200px){}
+
+
+
+.btn-commencer {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    color: #ffffff;
+    font-size: 20px;
+    background: rgba(1, 0, 7, 0.44);
+    padding: 10px 20px 10px 20px;
+    border: solid #ff2b2b 5px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.btn-commencer:hover {
+    background: #003657;
+    text-decoration: none;
+}
+
+.logo-sg{	
+    margin-top: 50px;
+}
+
+.container-intro{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1170px;
+}
