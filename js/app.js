@@ -14,6 +14,7 @@ $(document).ready(function(){
     var type = null;
     var win = true;
     var explanation = null;
+    var nb_reponse_selected = 0;
     function getDifficulty()
     {
         if (nb_question < 4) {
@@ -56,8 +57,10 @@ $(document).ready(function(){
     $('.btn-reponse').click(function(){
         if ($(this).hasClass('select')) {
             $(this).removeClass('select');
-        } else {
+            nb_reponse_selected --;
+        } else if ((type == 'radio' && nb_reponse_selected == 0)){
             $(this).addClass('select');
+            nb_reponse_selected ++;
         }
     });
     $('.btn-valider').click(function(){
@@ -135,7 +138,7 @@ $(document).ready(function(){
         $('.question').html(question);
         $('#nb_question').html(nb_question);
         $('.btn-reponse').removeClass('select').removeClass('btn-reponse-green');
-        timer = 30;
+        timer = 60;
         $('.chrono').html(timer);
         $('.container-question, .container, .btn-reponse').fadeIn(200);
         $('.container-question > .row').eq(4).fadeIn();
