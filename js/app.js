@@ -16,6 +16,10 @@ $(document).ready(function(){
     var win = true;
     var explanation = null;
     var nb_reponse_selected = 0;
+    var joker = {
+        fifty_fifty : 1,
+        switch_question : 1
+    };
     function getDifficulty()
     {
         if (nb_question < 4) {
@@ -44,9 +48,13 @@ $(document).ready(function(){
               $('li').click(function(){
                   id_theme = $(this).attr('id_theme');
                   $('.categorie').html($(this).html());
-                  $('#theme-list, .container-intro').fadeOut(function(){
-                        $('.container-question, .container').fadeIn(200);
+                  $('.container-intro').fadeOut(function(){
+                    $('.container-question, .container').fadeIn(200);
                   });
+                  joker = {
+                      fifty_fifty : 1,
+                      switch_question : 1
+                  };
                   getQuestion(id_theme, getDifficulty);
               });
           }
@@ -56,12 +64,16 @@ $(document).ready(function(){
 
 
     $('.btn-reponse').click(function(){
+        console.log(nb_reponse_selected);
         if ($(this).hasClass('select')) {
             $(this).removeClass('select');
             nb_reponse_selected --;
-        } else if ((type == 'radio' && nb_reponse_selected == 0)){
+        } else if (type == 'checkbox' && nb_reponse_selected <3){
             $(this).addClass('select');
             nb_reponse_selected ++;
+        }else if (type == 'radio'){
+            $('.btn-reponse').removeClass('select');
+            $(this).addClass('select');
         }
     });
     $('.btn-valider').click(function(){
@@ -95,6 +107,30 @@ $(document).ready(function(){
         }
     });
 
+    $('.fifty_fifty').click(function(){
+        if (joker.fifty_fifty) {
+            var bad_response = new Array();
+            $('.btn-reponse').each(function(element){
+                if (!$.inArray(element.attr('id_answer') * 1, validResponse)) {
+                    bad_response.push(element.attr('id_answer'));
+                }
+            });
+            for (var i=0; i<2; i++) {
+                if (bad_response.length) {
+                    var key_bad_response = Math.floor(Math.random() * bad_response.length);
+                    $('.btn-reponse[id_answer='+(bad_response[key_bad_response])+']');
+                    bad_response.splice(key_bad_response, 1);
+                }
+            }
+        }
+    });
+    $('.switch_question').click(function(){
+        if (joker.switch_question) {
+            joker.switch_question = 0;
+            getQuestion(id_theme, getDifficulty());
+        }
+    });
+
     // requete ajax pour recuperer une question et ses datas
     function getQuestion(id_theme, difficulty)
     {
@@ -120,6 +156,7 @@ $(document).ready(function(){
     // animation d'affichage
     function initQuestion(data)
     {
+        nb_reponse_selected = 0;
         type = data.question.type;
         validResponse = new Array();
         for (i=0; i<4; i++) {
@@ -139,7 +176,7 @@ $(document).ready(function(){
         $('.question').html(question);
         $('#nb_question').html(nb_question);
         $('.btn-reponse').removeClass('select').removeClass('btn-reponse-green');
-        timer = 30;
+        timer = 60;
         $('.chrono').html(timer);
         $('.container-question, .container, .btn-reponse').fadeIn(200);
         $('.container-question > .row').eq(4).fadeIn();
