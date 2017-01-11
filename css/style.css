@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
 body {
     margin:0;
     padding:0;
@@ -81,7 +84,7 @@ body {
     padding: 20px 0px;
     border: groove #870400 15px;
     text-decoration: none;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 80%;
 
     -webkit-transition: all 0.5s ease;
@@ -220,7 +223,9 @@ body {
         width: 80%;
     }
 }
-@media(min-width:1200px){}
+@media(min-width:1200px){
+	
+}
 
 
 
@@ -247,11 +252,10 @@ body {
 }
 
 .container-intro{
-	padding-right: 15px;
-    padding-left: 15px;
+	padding-right: 50px;
+    padding-left: 50px;
     margin-right: auto;
     margin-left: auto;
-	width: 1170px;
 }
 
 #theme-list{
@@ -259,6 +263,22 @@ body {
     margin: 50px 0px;
     font-size: 20px;
     list-style-type: none;
+	border: groove #870400 10px;
+	font-family:  'Oswald', sans-serif;
+	text-align: center;
+	padding: 20px 30px;;
+	-webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 15px;
+	background: rgba(0, 0, 0, 0.62);
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#theme-list:hover{
+	background-color: #5a0000;
 }
 
 .perso{
@@ -268,10 +288,29 @@ body {
 .btn-fct{
 	width: 100%;
 	margin-bottom: 5px;
-	background: #5a0000;
+	background: rgba(0, 0, 0, 0.62);
     padding: 6px 0px;
-    border: groove #870400 1px;
+    border: groove #870400 5px;
     text-decoration: none;
 	color: #fff;
-
+	-webkit-border-radius: 15;
+    -moz-border-radius: 15;
+    border-radius: 10px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
+
+.btn-fct:hover{
+	background-color: #5a0000;
+}
+
+.cat-intro{
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-family:  'Oswald', sans-serif;
+}
+
