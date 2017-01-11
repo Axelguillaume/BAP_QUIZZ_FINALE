@@ -10,7 +10,7 @@ $(document).ready(function(){
     var id_theme = null;
     var theme = null;
     var timerInterval = null;
-    var timer = 30;
+    var timer = 60;
     var validResponse = null;
     var type = null;
     var win = true;
@@ -91,6 +91,7 @@ $(document).ready(function(){
             var win = isWin(reponse);
             if (win == false && stopIfFalse == true) {
                 nb_question = 10;
+                timer = 60;
                 $('.btn-next').html('Recommencer');
             }else {
                 $('.btn-next').html('Suivant');
@@ -109,6 +110,7 @@ $(document).ready(function(){
            $('.container-question, .container-progress, .container-explanation, .row-btn-next').fadeOut();
            $('.container-intro').fadeIn();
            nb_question = 1;
+           timer = 60;
         }
     });
 
