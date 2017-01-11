@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
     // initialisation application
-    $('.container-question, .container, .container-explanation, .row-btn-next').hide();
+    $('.container-question, .container-progress, .container-explanation, .row-btn-next').hide();
 
     // déclaration des variables de l'app
     var stopIfFalse = false;
@@ -49,7 +49,7 @@ $(document).ready(function(){
                   id_theme = $(this).attr('id_theme');
                   $('.categorie').html($(this).html());
                   $('.container-intro, .row-btn-next').fadeOut(function(){
-                    $('.container-question, .container').fadeIn(200);
+                    $('.container-question, .container-progress').fadeIn(200);
                   });
                   joker = {
                       fifty_fifty : 1,
@@ -178,7 +178,7 @@ $(document).ready(function(){
         $('.btn-reponse').removeClass('select').removeClass('btn-reponse-green');
         timer = 60;
         $('.chrono').html(timer);
-        $('.container-question, .container, .btn-reponse').fadeIn(200);
+        $('.container-question, .container-progress, .btn-reponse').fadeIn(200);
         $('.container-question > .row').eq(4).fadeIn();
         timerInterval = setInterval(timerCompt,1000);
     }
