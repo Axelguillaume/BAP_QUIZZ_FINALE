@@ -19,7 +19,7 @@ $(document).ready(function(){
     var joker = {
         fifty_fifty : 1,
         switch_question : 1
-    };
+    }
     function getDifficulty()
     {
         if (nb_question < 4) {
@@ -48,13 +48,13 @@ $(document).ready(function(){
               $('li').click(function(){
                   id_theme = $(this).attr('id_theme');
                   $('.categorie').html($(this).html());
-                  $('.container-intro').fadeOut(function(){
+                  $('.container-intro, .row-btn-next').fadeOut(function(){
                     $('.container-question, .container').fadeIn(200);
                   });
                   joker = {
                       fifty_fifty : 1,
                       switch_question : 1
-                  };
+                  }
                   getQuestion(id_theme, getDifficulty);
               });
           }
