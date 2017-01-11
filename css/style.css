@@ -101,11 +101,11 @@ body {
 }
 
 .select {
-    background-color: red;
+    background-color: #217AB2;
 }
 /* ------------- Bouton valider ------------ */
 
-.btn-valider, .btn-next{
+.btn-valider, .btn-next, .btn-return{
     -webkit-border-radius: 15;
     -moz-border-radius: 15;
     border-radius: 15px;
@@ -320,10 +320,12 @@ body {
 	font-family:  'Oswald', sans-serif;
 }
 
-.container-next{
+.container-next, .container-return{
 	padding-right: 50px;
     padding-left: 50px;
     margin-right: auto;
     margin-left: auto;
 }
+
+
 

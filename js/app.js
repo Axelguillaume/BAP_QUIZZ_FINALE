@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('.container-question, .container-progress, .container-explanation, .row-btn-next').hide();
 
     // déclaration des variables de l'app
-    var stopIfFalse = false;
+    var stopIfFalse = true;
     var nb_question = 1;
     var id_theme = null;
     var theme = null;
@@ -49,7 +49,7 @@ $(document).ready(function(){
                   id_theme = $(this).attr('id_theme');
                   $('.categorie').html($(this).html());
                   $('.container-intro, .row-btn-next').fadeOut(function(){
-                    $('.container-question, .container-progress').fadeIn(200);
+                    $('.container-question, .container-progress, .fifty_fifty, .switch_question').fadeIn(200);
                   });
                   joker = {
                       fifty_fifty : 1,
@@ -89,8 +89,11 @@ $(document).ready(function(){
         } else {
             clearInterval(timerInterval);
             var win = isWin(reponse);
-            if (win == true && stopIfFalse == true) {
+            if (win == false && stopIfFalse == true) {
                 nb_question = 10;
+                $('.btn-next').html('Recommencer');
+            }else {
+                $('.btn-next').html('Suivant');
             }
             displayExplanation(reponse); 
         }
@@ -103,22 +106,27 @@ $(document).ready(function(){
                 getQuestion(id_theme, getDifficulty()); 
             });
         } else {
-           
+           $('.container-question, .container-progress, .container-explanation, .row-btn-next').fadeOut();
+           $('.container-intro').fadeIn();
+           nb_question = 1;
         }
     });
 
     $('.fifty_fifty').click(function(){
         if (joker.fifty_fifty) {
+            joker.fifty_fifty = 0;
+            $(this).fadeOut();
             var bad_response = new Array();
-            $('.btn-reponse').each(function(element){
-                if (!$.inArray(element.attr('id_answer') * 1, validResponse)) {
-                    bad_response.push(element.attr('id_answer'));
+            $('.btn-reponse').each(function(){
+                if ($.inArray($(this).attr('id_answer') * 1, validResponse) == -1) {
+                    bad_response.push($(this).attr('id_answer'));
                 }
             });
+            console.log(bad_response);
             for (var i=0; i<2; i++) {
                 if (bad_response.length) {
                     var key_bad_response = Math.floor(Math.random() * bad_response.length);
-                    $('.btn-reponse[id_answer='+(bad_response[key_bad_response])+']');
+                    $('.btn-reponse[id_answer='+(bad_response[key_bad_response])+']').fadeOut();
                     bad_response.splice(key_bad_response, 1);
                 }
             }
@@ -127,6 +135,7 @@ $(document).ready(function(){
     $('.switch_question').click(function(){
         if (joker.switch_question) {
             joker.switch_question = 0;
+            $(this).fadeOut();
             getQuestion(id_theme, getDifficulty());
         }
     });
@@ -197,7 +206,7 @@ $(document).ready(function(){
     {
         win = true;
         reponse.forEach(function(rep){
-            if ($.inArray(rep * 1, validResponse) === false) {
+            if ($.inArray(rep * 1, validResponse) == -1) {
                 win = false;
             }
         });
@@ -215,11 +224,7 @@ $(document).ready(function(){
             $('.container-question > .row').eq(4).fadeOut(function(){
                 $('.content-explanation').html(explanation);
                 $('.container-explanation').fadeIn();
-                if (nb_question < 10) {
-                    $('.row-btn-next').fadeIn();
-                } else {
-                    $('.row-btn-next').html('Fin').fadeIn();
-                }
+                $('.row-btn-next').fadeIn();
             });
         },2000);
     }
